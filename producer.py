@@ -1,3 +1,4 @@
+import datetime
 import json
 import time
 import tweepy
@@ -20,12 +21,15 @@ api = tweepy.API(auth)
 
 # kafka broker
 # configured locally with HDP 2.6 sandbox
-kafka_brokers = 'localhost:9092'
-topic_name = 'tweets'
+kafka_brokers = 'localhost:6667'
+topic_name = 'test'
 important_fields = ['created_at', 'id', 'id_str', 'text', 'retweet_count', 'favorite_count', 'favorited', 'retweeted', 'lang']
 
 # kafka producer
-producer = KafkaProducer(bootstrap_servers=kafka_brokers)
+producer = KafkaProducer(
+    bootstrap_servers=kafka_brokers,
+    api_version=(0, 10, 1)
+)
 
 
 def get_tweets():
@@ -36,7 +40,7 @@ def get_tweets():
 
         tweet = {k: r._json[k] for k in important_fields}
         tweet['text'] = tweet['text'].replace("'", "").replace("\"", "").replace("\n", "")
-        producer.send(topic_name, str.encode(json.dump(tweet)))
+        producer.send(topic_name, str.encode(json.dumps(tweet)))
 
 
 def stream(interval):
@@ -44,6 +48,7 @@ def stream(interval):
     while True:
 
         get_tweets()
+        print('Streaming Tweets at {}'.format(str(datetime.datetime.now())))
         time.sleep(interval)
 
 if __name__ == "__main__":
