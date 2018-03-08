@@ -24,7 +24,7 @@ api = tweepy.API(auth)
 # need to add an entry for the sandbox in /etc/hosts
 # Note: using localhost or 127.0.0.1 for kafka broker setting here doesn't work
 kafka_brokers = 'sandbox-hdp.hortonworks.com:6667'
-topic_name = 'test'
+topic_name = 'tweets'
 important_fields = ['created_at', 'id', 'id_str', 'text', 'retweet_count', 'favorite_count', 'favorited', 'retweeted', 'lang']
 
 # kafka producer
