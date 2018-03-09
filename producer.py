@@ -54,4 +54,4 @@ def stream(interval):
         time.sleep(interval)
 
 if __name__ == "__main__":
-    stream(5)
+    stream(10)

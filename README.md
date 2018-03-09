@@ -5,5 +5,8 @@
 4. Create topic and validate kafka with console producer and consumer referencing [Validate Kafka](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.2/bk_command-line-installation/content/validate_kafka.html)
 5. [Check Kafka data](https://stackoverflow.com/questions/17730905/is-there-a-way-to-delete-all-the-data-from-a-topic-or-delete-the-topic-before-ev)
 
+## Pyspark configuration
+Please follow [Pyspark Interpreter not working on Zeppelin](https://community.hortonworks.com/questions/176943/pyspark-interpreter-not-working-on-zeppelin.html) to solve Pyspark problem on HDP 2.6 Zeppelin.
+
 ### Python dependencies in producer script(using Anaconda)
 `pip install tweepy kafka-python`
