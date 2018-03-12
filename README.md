@@ -19,7 +19,8 @@ _Structured Streaming provides fast, scalable, fault-tolerant, end-to-end exactl
 Please follow the instructions below for Spark Structured Streaming + Kafka demo.
 
 ### Environment
-Hortonworks HDP 2.6 + local Kafka producer with Custom Python script
+1. Kafka consumer + Spark ([Hortonworks HDP 2.6 Sandbox VM](https://hortonworks.com/downloads/))
+2. Local Kafka producer ([custom Python script](https://github.com/r96941046/Spark-Structured-Streaming-with-Kafka/blob/master/producer.py))
 
 ### HDP configuration
 1. Enable Kafka service through Ambari interface
