@@ -8,6 +8,8 @@ _Structured Streaming provides fast, scalable, fault-tolerant, end-to-end exactl
 2. Spark DataFrame API in Scala, Java, Python or R, and is executed on the Spark SQL engine.
 3. Ensuring end-to-end, exactly-once fault tolerance guarantee through checkpointing and Write Ahead Logs.
 4. Micro-batch processing, and a new low-latency processing mode (as low as 1 millisecond) called Continuous Processing.
+5. The key idea is to treat a live data stream as a table that is being continuously appended, and Spark runs computation as an incremental query on the unbounded input table.
+6. Spark only keeps the minimal intermediate state data as required to update the result, and does not materialize the entire source table.
 
 ### Environment
 Hortonworks HDP 2.6 + local Kafka producer with Custom Python script
