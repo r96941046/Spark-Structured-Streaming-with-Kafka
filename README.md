@@ -29,3 +29,12 @@ Please add the library `org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0` to Zep
 
 ### Python dependencies in producer script(using Anaconda)
 `pip install tweepy kafka-python`
+
+## References
+1. [Structured Streaming Programming Guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
+2. [Structured Streaming + Kafka Integration Guide ](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html)
+3. [kafka-python-client-example](http://www.biglittleant.cn/2016/12/28/kafka-python/)
+4. [Pyspark: Parse a column of json strings](https://stackoverflow.com/questions/41107835/pyspark-parse-a-column-of-json-strings)
+5. [Apache Spark Structured Streaming](https://jhui.github.io/2017/01/15/Apache-Spark-Streaming/)
+6. [pyspark.sql module](http://spark.apache.org/docs/2.1.0/api/python/pyspark.sql.html)
+7. [What Spark's Structured Streaming really means](https://www.infoworld.com/article/3052924/analytics/what-sparks-structured-streaming-really-means.html)
