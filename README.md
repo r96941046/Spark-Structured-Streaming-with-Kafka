@@ -4,6 +4,18 @@
 
 ### [Kafka](https://kafka.apache.org/intro)
 
+_Kafka is a distributed, scalable, fault-tolerant streaming platform_
+
+1. Producers send messages to Kafka brokers and these messages are processed by consumers.
+2. Messages are grouped in topics, which consumers subscribe to.
+3. Topics can be split into partitions for scalability and act as the unit of parallelism, and each of those partitions can have replications.
+4. Consumers are actually consumer groups that have one or more consumer processes inside, and each partition is tied to only one consumer process per group for parallelism.
+5. Kafka only provides a total order over records within a partition, not between different partitions in a topic.
+6. Kafka has dumb broker and smark consumer, consumers themselves poll Kafka for messages and track which of those to read, and broker simply stores messages for a set amount of time (default two weeks) or until some size threshold is met. That said, Kafka consumers are very cheap, they can come and go without much impact on the cluster or on other consumers.
+7. Kafka stores all messages to disk in the form of commit logs, avoiding expensive disk seeks, and reads and writes do not affect each other. As a result, data size is completely decoupled from performance. Kafka has the same performance whether there is 100KB or 100TB data on server.
+8. Messaging traditionally has two models: queuing and publish-subscribe. Kafka generalizes these two concepts: As with a queue the consumer group allows you to divide up processing over a collection of processes (the members of the consumer group). As with publish-subscribe, Kafka allows you to broadcast messages to multiple consumer groups.
+9. Kafka can be used for messaging system / storage system / streaming processing. Kafka can act as a centralized medium of an event-driven architecture that connects different applications and allows truly decoupling of applications from one another.
+
 ### [Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)
 
 _Structured Streaming provides fast, scalable, fault-tolerant, end-to-end exactly-once stream processing without the user having to reason about streaming._
@@ -54,3 +66,6 @@ In Zeppelin interface on HDP, please import [the notebook in this repo](https://
 5. [Apache Spark Structured Streaming](https://jhui.github.io/2017/01/15/Apache-Spark-Streaming/)
 6. [pyspark.sql module](http://spark.apache.org/docs/2.1.0/api/python/pyspark.sql.html)
 7. [What Spark's Structured Streaming really means](https://www.infoworld.com/article/3052924/analytics/what-sparks-structured-streaming-really-means.html)
+8. [Kafka Introduction](https://kafka.apache.org/intro)
+9. [Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1)
+10. [Benchmarking Apache Kafka: 2 Million Writes Per Second (On Three Cheap Machines)](https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines)
